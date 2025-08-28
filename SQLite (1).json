@@ -1,0 +1,3 @@
+Create table products(id int,name text,price int,amc text, image text);
+INSERT INTO products (name, price, amc, image) VALUES('RO Aqua Smart', '₹12,999', 'AMC: ₹999/year', 'images/aqua1.jpg'),('Pure Aqua Plus', '₹15,999', 'AMC: ₹1199/year', 'images/aqua2.jpg');
+SELEct*from products

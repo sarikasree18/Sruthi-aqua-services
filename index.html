@@ -1,0 +1,205 @@
+<!DOCTYPE.html>
+<html>
+    <title>Sruthi Aqua Services</title>
+    <link rel="icon" href="logo.jpg">
+    <body bgcolor="lightblue">
+        <div class="banner">
+  <img src="banner.jpg" width="570px">
+</div>
+<link rel="stylesheet" href="css/style.css">
+<link rel="script" href="js/script.js">
+<link rel="sqlite" href="SQLite.json">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<center>
+<!-- Navigation Bar -->
+  <header class="navbar">
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="product.html">Products</a>
+      <a href="contact.html">Contact us</a>
+      <a href="brands.html">Brands</a>
+      <a href="gallery.html">Gallery</a>
+
+    </nav>
+    </header>
+<div class="image-row">
+<img src="banner2 - Copy.jpg" alt="Banner 1" width="430px">
+<img src="download (1).jpeg" alt="Banner 2" width="430px">
+<img src="photo5.jpg" width="370px">
+</div>
+</center>
+<center>
+<!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Pure Water, Pure Life</h1>
+      <p> Your trusted partner for clean and safe drinking water across Chennai.<br> With a strong presence in the city, we specialize in delivering high-quality water purifiers, installation services, and reliable maintenance support for homes and businesses.<br> Our commitment to excellence and customer satisfaction has made us a preferred choice for thousands of families and enterprises.<br> At Sruthi Aqua, we believe that access to pure water is a right, not a luxury—and we’re proud to make that a reality for you.</p>
+      <a href="contact.html" class="btn">Get in Touch</a>
+    </div>
+  </section>
+  </center>
+<center>
+  <!-- About Preview -->
+  <section class="about-preview">
+    <div class="container">
+      <h2>About Sruthi Aqua</h2>
+      <p>With over 25 years of dedicated experience, Sruthi Aqua Services has become a household name in water purification solutions across Chennai.<br> We specialize in the sales, service, and installation of top-brand water purifiers, ensuring every family and business gets access to clean, safe, and healthy drinking water.<br> Our wide reach across the city, commitment to quality, and prompt customer support make us a preferred choice for thousands of satisfied customers.<br> Choose Sruthi Aqua – where purity meets reliability!</p>
+      <a href="about.html" class="btn-outline">Learn More</a>
+    </div>
+  </section>
+  </center>
+  <center>
+
+  <!-- Services Preview -->
+  <section class="services-preview">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-cards">
+        <div class="card">
+          <h3>Water Purifier Sales</h3>
+          <p>Top-quality brands and models to suit every need and budget.</p>
+        </div>
+        <div class="card">
+          <h3>Maintenance & Repair</h3>
+          <p>Fast, reliable service for all major water purifier brands.</p>
+        </div>
+        <div class="card">
+          <h3>Installation Services</h3>
+          <p>Professional installation for homes and offices across the region.</p>
+        </div>
+      </div>
+      <a href="services.html" class="btn-outline">View All Services</a>
+    </div>
+  </section>
+  </center>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Sruthi Aqua Services and Sales. All rights reserved.</p>
+    </div>
+  </footer>
+</center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RO Machine Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f7fa;
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .ro-machine {
+      width: 150px;
+      height: 200px;
+      background: #4a90e2;
+      margin: 0 auto;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 0 10px #999;
+    }
+
+    .pipe {
+      width: 20px;
+      height: 30px;
+      background: #333;
+      position: absolute;
+      bottom: -30px;
+      left: 65px;
+      border-radius: 5px;
+    }
+
+    .water-stream {
+      width: 6px;
+      height: 0;
+      background: #00f;
+      position: absolute;
+      bottom: -30px;
+      left: 72px;
+      transition: height 0.2s;
+      z-index: 2;
+    }
+
+    .glass {
+      width: 80px;
+      height: 80px;
+      border: 3px solid #444;
+      margin: 60px auto 20px;
+      background: #fff;
+      position: relative;
+      box-shadow: 0 0 10px #aaa;
+    }
+
+    .glass-water {
+      width: 100%;
+      height: 0;
+      background: #00f;
+      position: absolute;
+      bottom: 0;
+      transition: height 0.2s;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005f8a;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>RO Machine Simulation</h2>
+
+  <div class="ro-machine">
+    <div class="pipe"></div>
+    <div class="water-stream" id="waterStream"></div>
+  </div>
+
+  <div class="glass">
+    <div class="glass-water" id="glassWater"></div>
+  </div>
+
+  <button onclick="turnOn()">Turn On</button>
+  <button onclick="turnOff()">Turn Off</button>
+
+  <script>
+    let fillInterval;
+
+    function turnOn() {
+      const stream = document.getElementById('waterStream');
+      const glassWater = document.getElementById('glassWater');
+
+      stream.style.height = '40px';
+
+      if (fillInterval) return; // Avoid multiple intervals
+
+      fillInterval = setInterval(() => {
+        let currentHeight = parseInt(glassWater.style.height || "0");
+        if (currentHeight < 80) {
+          glassWater.style.height = (currentHeight + 2) + 'px';
+        }
+      }, 100);
+    }
+
+    function turnOff() {
+      document.getElementById('waterStream').style.height = '0';
+      clearInterval(fillInterval);
+      fillInterval = null;
+    }
+  </script>
+  
